@@ -1,10 +1,11 @@
 FROM alpine:3.10
 
-LABEL MAINTAINERS="Guillaume Scheibel <guillaume.scheibel@gmail.com>, Damien DUPORTAL <damien.duportal@gmail.com>"
+LABEL MAINTAINERS="Mitsutaka TAKADA <mtakada@nces.i.nagoya-u.ac.jp>"
 
 ARG asciidoctor_version=2.0.10
 ARG asciidoctor_confluence_version=0.0.2
-ARG asciidoctor_pdf_version=1.5.0.beta.7
+ARG asciidoctor_pdf_version=1.5.0.alpha.16
+ARG asciidoctor_pdf_cjk_version=0.1.3
 ARG asciidoctor_diagram_version=1.5.19
 ARG asciidoctor_epub3_version=1.5.0.alpha.9
 ARG asciidoctor_mathematical_version=0.3.1
@@ -13,6 +14,7 @@ ARG asciidoctor_revealjs_version=2.0.0
 ENV ASCIIDOCTOR_VERSION=${asciidoctor_version} \
   ASCIIDOCTOR_CONFLUENCE_VERSION=${asciidoctor_confluence_version} \
   ASCIIDOCTOR_PDF_VERSION=${asciidoctor_pdf_version} \
+  ASCIIDOCTOR_PDF_CJK_VERSION=${asciidoctor_pdf_cjk_version} \
   ASCIIDOCTOR_DIAGRAM_VERSION=${asciidoctor_diagram_version} \
   ASCIIDOCTOR_EPUB3_VERSION=${asciidoctor_epub3_version} \
   ASCIIDOCTOR_MATHEMATICAL_VERSION=${asciidoctor_mathematical_version} \
@@ -56,6 +58,7 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     "asciidoctor-mathematical:${ASCIIDOCTOR_MATHEMATICAL_VERSION}" \
     asciimath \
     "asciidoctor-pdf:${ASCIIDOCTOR_PDF_VERSION}" \
+    "asciidoctor-pdf-cjk:${ASCIIDOCTOR_PDF_CJK_VERSION}" \
     "asciidoctor-revealjs:${ASCIIDOCTOR_REVEALJS_VERSION}" \
     coderay \
     epubcheck:3.0.1 \
